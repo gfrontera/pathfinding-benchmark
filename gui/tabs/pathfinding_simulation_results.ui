@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>pathfinding_simulation_results</class>
+ <widget class="QWidget" name="pathfinding_simulation_results">
+  <layout class="QVBoxLayout" name="vertical_layout">
+   <item>
+    <widget class="QWidget" name="results_widget" native="true">
+     <layout class="QVBoxLayout" name="results_layout">
+      <item>
+       <widget class="QLabel" name="results_table_label">
+        <property name="text">
+         <string>Simulation results:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableWidget" name="results_table">
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>150</number>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

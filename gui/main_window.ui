@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>main_window</class>
+ <widget class="QMainWindow" name="main_window">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>UAS Simulator</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QTabWidget" name="tabs">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>15</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="tabsClosable">
+        <bool>true</bool>
+       </property>
+       <widget class="ues::gui::init" name="init_tab">
+        <attribute name="title">
+         <string>Init</string>
+        </attribute>
+       </widget>
+      </widget>
+      <widget class="ues::gui::log_widget" name="log" native="true">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>ues::gui::init</class>
+   <extends>QWidget</extends>
+   <header>tabs/init.h</header>
+   <container>1</container>
+   <slots>
+    <signal>tab_created(QWidget*)</signal>
+   </slots>
+  </customwidget>
+  <customwidget>
+   <class>ues::gui::log_widget</class>
+   <extends>QWidget</extends>
+   <header>log/log_widget.h</header>
+   <container>1</container>
+   <slots>
+    <signal>tab_created(tab*)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>tabs</sender>
+   <signal>tabCloseRequested(int)</signal>
+   <receiver>main_window</receiver>
+   <slot>close_tab(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>381</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>log</sender>
+   <signal>tab_created(tab*)</signal>
+   <receiver>main_window</receiver>
+   <slot>add_tab(tab*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>511</x>
+     <y>742</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>511</x>
+     <y>383</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>close_tab(int)</slot>
+  <slot>add_tab(tab*)</slot>
+ </slots>
+</ui>
